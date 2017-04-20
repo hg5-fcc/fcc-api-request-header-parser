@@ -4,15 +4,12 @@ const app     = express();
 
 app.get('/', (req, res) => {
   
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   const languages = req.acceptsLanguages();
-  const ua = req.headers['user-agent'];
-  const os = ua.match(/\(([^\(\)]+)\)/);
+  const language = languages.length > 0 ? languages[0]: '';
+  const software = req.headers['user-agent'].match(/\(([^\(\)]+)\)/)[1];
 
-  const data = {
-    ip:req.ip,
-    language:languages.length > 0 ? languages[0]: '',
-    software:os[1],
-  };
+  const data = {ip,language,software};
 
   res.send(JSON.stringify(data));
 });
