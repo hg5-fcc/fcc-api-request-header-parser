@@ -1,0 +1,18 @@
+{
+  "name": "request_header_parse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hagi5",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "engines": {
+    "node": "4.X.X",
+    "npm": "2.X.X"
+  }
+}
